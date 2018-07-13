@@ -1,0 +1,34 @@
+<div id="main" class="row">
+  <div class="side col-12">
+    <h2>Send  anonymous Message </h2>
+    <h6>please chose a kind words ;)</h6>
+  <div class="inner_side">
+      <img src="assets/imgs/O_image.png">
+    <h3>Osama gamal </h3>
+    <h6>front end & cross platform developr </h6>
+   
+  </div>
+  </div>
+  <div class="side col-12">
+  <form action="" #myform [formGroup]="messageForm">
+    <textarea class="form-control" rows="6" placeholder="leave your Message here" formControlName="anonMsg">
+
+  
+    </textarea>
+
+    <div *ngIf="messageForm.controls['anonMsg'].invalid && (messageForm.controls['anonMsg'].dirty || messageForm.controls['anonMsg'].touched)" class="alert my-2 alert-light">
+        <div *ngIf="messageForm.controls['anonMsg'].errors.required">
+          meassage is required.
+        </div>
+    </div>
+    <div *ngIf="msgSent" class="alert my-2 msg-sent-alert alert-light">
+        your message sent 
+    </div>
+    <button type="submit"
+    [disabled]="messageForm.pristine || messageForm.invalid" class="btn my-2" (click)="sendMessage()">
+    send
+</button>
+  </form>
+
+  </div>
+</div>
